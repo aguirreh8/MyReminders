@@ -21,8 +21,12 @@ body {
     z-index: 999;
 }
 
-.notes-holder {
+.create-note-form {
     margin-top: 100px;
+}
+
+.notes-holder {
+    margin-top: 20px; 
     width: 100%;
 }
 
