@@ -23,3 +23,8 @@ body {
     margin-top: 100px;
     width: 100%;
 }
+
+.note-card {
+    width: 70%;
+    margin: 0 auto;
+}
