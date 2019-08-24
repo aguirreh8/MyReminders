@@ -25,6 +25,23 @@ body {
 }
 
 .note-card {
-    width: 70%;
+    padding: 15px;
+    width: 80%;
     margin: 0 auto;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0px rgba(209,235,255,1);
+}
+
+.note-card h3 {
+    margin: 10px 0px 10px;
+    font-size: 25px;
+}
+
+.delete-note-btn {
+    float: right;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    z-index: 99;
 }
