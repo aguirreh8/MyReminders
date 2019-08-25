@@ -30,6 +30,12 @@ body {
     text-align: center;
 }
 
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+}
+
 .notes-holder {
     margin-top: 20px; 
     width: 100%;
