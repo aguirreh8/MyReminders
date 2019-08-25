@@ -36,6 +36,28 @@ textarea {
     resize: none;
 }
 
+#submitBtn {
+    background: green;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 35px;
+}
+
+#clearBtn {
+    background: crimson;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 35px;
+}
+
 .notes-holder {
     margin-top: 20px; 
     width: 100%;
@@ -63,7 +85,17 @@ textarea {
     width: 40px;
     height: 40px;
     z-index: 10;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    border: none;
+    transition: .2s ease;
 }
+
+.delete-note-btn:hover {
+    background-color: darkred;
+} 
 
 .date-created-text {
     float: right;
