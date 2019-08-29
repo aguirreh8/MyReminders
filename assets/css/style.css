@@ -27,7 +27,16 @@ body {
     margin: 0 auto;
     margin-top: 100px;
     width: 80%;
-    text-align: center;
+    /* text-align: center; */
+}
+
+#noteTitle {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.create-note-form label {
+    text-align: left;
 }
 
 textarea {
