@@ -12,7 +12,7 @@
             <div class="create-note-form">
                 <h2>Create a new note</h2>
                 <form id="newNote">
-                    <textarea placeholder="Add text here" rows="8"></textarea>
+                    <textarea placeholder="Add text here" rows="8" required id="noteMessage"></textarea>
                     <br />
                     <button id="submitBtn">Submit</button>
                     <button id="clearBtn">Clear</button>
@@ -20,6 +20,7 @@
             </div>
             
             <div class="notes-holder">
+
                 <div class="note-card">
                     <button class="delete-note-btn">X</button>
                     <h3>Title here</h3>
@@ -41,6 +42,7 @@
                     </ol>    
                     <p class="date-created-text">date created here</p>
                 </div>
+
                 <div class="note-card">
                         <button class="delete-note-btn">X</button>
                         <h3>Title here</h3>
@@ -65,6 +67,7 @@
                         </ol>    
                         <p class="date-created-text">date created here</p>
                 </div>
+
                 <div class="note-card">
                         <button class="delete-note-btn">X</button>
                         <h3>Title here</h3>
@@ -86,6 +89,7 @@
                         </ol>    
                         <p class="date-created-text">date created here</p>
                 </div>
+
             </div>
         </main>
         <script src="assets/js/script.js"></script>
