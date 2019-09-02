@@ -6,9 +6,8 @@ let notesCollection = [];
 document.addEventListener("DOMContentLoaded", function() {
     JSON.parse(localStorage.getItem("savedNotes")) ? 
         notesCollection = JSON.parse(localStorage.getItem("savedNotes"))  : notesCollection = [];
-    console.log(notesCollection);
     notesCollection.forEach(function(i) {
-        createNoteElement(i.title, i.message, i.id)
+        createNoteElement(i.title, i.message, i.id, i.dateCreated)
     })
 });
 
@@ -18,12 +17,16 @@ const submitNote = () => {
     let generateId = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + 
         Date.now();
     
-    createNoteElement(noteTitle, noteMessage, generateId);
+    const today = new Date();
+    const dateCreated = `${(today.getMonth()) + 1}/${today.getDate()}/${today.getFullYear()}`
+
+    createNoteElement(noteTitle, noteMessage, generateId, dateCreated);
     
     const sendInfoToStorageObj = {
         id: generateId,
         title: noteTitle,
-        message: noteMessage
+        message: noteMessage,
+        dateCreated: dateCreated
     }
 
     notesCollection.push(sendInfoToStorageObj);
@@ -41,24 +44,28 @@ const deleteNote = (id) => {
     localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
 }
 
-const createNoteElement = (noteTitle, noteMessage, id) => {
+const createNoteElement = (noteTitle, noteMessage, id, dateCreated) => {
     const newNoteCard = document.createElement("div");
     const newNoteTitle = document.createElement("h3");
     const newNoteMessage = document.createElement("p");
     const newNoteDltBtn = document.createElement("button");
+    const newNoteDateCreated = document.createElement("p");
     newNoteDltBtn.innerHTML = "X";
 
     noteTitle ? newNoteTitle.innerHTML = noteTitle : newNoteTitle.innerHTML = "No Title";
     newNoteMessage.innerHTML = noteMessage;
+    newNoteDateCreated.innerHTML = "Created on " + dateCreated;
     
     newNoteCard.classList.add("note-card");
     newNoteCard.setAttribute("id", id);
     newNoteDltBtn.classList.add("delete-note-btn");
     newNoteDltBtn.setAttribute("id", id);
     newNoteDltBtn.setAttribute("onclick", "deleteNote(this.id)")
-    
+    newNoteDateCreated.classList.add("date-created-text");
+
     newNoteCard.appendChild(newNoteDltBtn);
     newNoteCard.appendChild(newNoteTitle);
     newNoteCard.appendChild(newNoteMessage);
+    newNoteCard.appendChild(newNoteDateCreated);
     notesHolder.appendChild(newNoteCard);
 }
