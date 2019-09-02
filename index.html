@@ -17,9 +17,10 @@
                     <label for="noteMessage">Message:</label>
                     <textarea placeholder="Add text here" rows="8" required id="noteMessage"></textarea>
                     <br />
-                    <button id="submitBtn">Submit</button>
+                    <button id="submitBtn" onclick="submitNote()">Submit</button>
                     <button id="clearBtn">Clear</button>
                 </form>
+                <button id="localStorageTest" onclick="localStorageTest()">Local Storage</button>
             </div>
             
             <div class="notes-holder" id="notesHolder">

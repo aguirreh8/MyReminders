@@ -1,10 +1,19 @@
 const submitBtn = document.getElementById("submitBtn");
 const notesHolder = document.getElementById("notesHolder");
 const clearBtn = document.getElementById("clearBtn");
+let notesCollection = [];
 
-submitBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-    
+// submitBtn.addEventListener("click", function(e) {
+//     e.preventDefault();
+// })
+
+
+
+// clearBtn.addEventListener("click", function(e) {
+//     e.preventDefault();
+// })
+
+const submitNote = () => {
     const noteTitle = document.getElementById("noteTitle").value;
     const noteMessage = document.getElementById("noteMessage").value;
     let generateId = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + 
@@ -30,17 +39,23 @@ submitBtn.addEventListener("click", function(e) {
         newNoteCard.appendChild(newNoteTitle);
         newNoteCard.appendChild(newNoteMessage);
         notesHolder.appendChild(newNoteCard);
-    } else {
-        alert("Please type in a message");
-    }
-})
-
-clearBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-})
-
-
+    } 
+    // else {
+    //     alert("Please type in a message");
+    // }
+}
 
 const deleteNote = (id) => {
     console.log(id);
+}
+
+const localStorageTest = () => {
+    const myObj = {
+        id: 1,
+        name: "dude"
+    }
+
+    notesCollection.push(myObj);
+    console.log(notesCollection);
+    localStorage.setItem("myNotes", JSON.stringify(notesCollection));
 }
