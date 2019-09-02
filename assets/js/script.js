@@ -19,43 +19,26 @@ const submitNote = () => {
         Date.now();
     
     createNoteElement(noteTitle, noteMessage, generateId);
-    // if (noteMessage) {
-    //     const newNoteCard = document.createElement("div");
-    //     const newNoteTitle = document.createElement("h3");
-    //     const newNoteMessage = document.createElement("p");
-    //     const newNoteDltBtn = document.createElement("button");
-    //     newNoteDltBtn.innerHTML = "X";
+    
+    const sendInfoToStorageObj = {
+        id: generateId,
+        title: noteTitle,
+        message: noteMessage
+    }
 
-    //     noteTitle ? newNoteTitle.innerHTML = noteTitle : newNoteTitle.innerHTML = "No Title";
-    //     newNoteMessage.innerHTML = noteMessage;
-        
-    //     newNoteCard.classList.add("note-card");
-    //     newNoteCard.setAttribute("id", generateId);
-    //     newNoteDltBtn.classList.add("delete-note-btn");
-    //     newNoteDltBtn.setAttribute("id", generateId);
-    //     newNoteDltBtn.setAttribute("onclick", "deleteNote(this.id)")
-        
-    //     newNoteCard.appendChild(newNoteDltBtn);
-    //     newNoteCard.appendChild(newNoteTitle);
-    //     newNoteCard.appendChild(newNoteMessage);
-    //     notesHolder.appendChild(newNoteCard);
-
-        const sendInfoToStorageObj = {
-            id: generateId,
-            title: noteTitle,
-            message: noteMessage
-        }
-
-        notesCollection.push(sendInfoToStorageObj);
-        localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
-    // } 
-    // else {
-    //     alert("Please type in a message");
-    // }
+    notesCollection.push(sendInfoToStorageObj);
+    localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
 }
 
 const deleteNote = (id) => {
-    console.log(id);
+    const elementToRemove = document.getElementById(id);
+    notesHolder.removeChild(elementToRemove);
+    for(i = 0; i < notesCollection.length; i++) {
+        if(notesCollection[i].id == id) {
+            notesCollection.splice(i, 1);
+        }
+    }
+    localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
 }
 
 const createNoteElement = (noteTitle, noteMessage, id) => {
