@@ -76,7 +76,7 @@ textarea {
     padding: 15px;
     width: 80%;
     margin: 0 auto;
-    border: 1px solid;
+    border: 1px solid gray;
     border-radius: 5px;
     box-shadow: 10px 10px 5px 0px rgba(209,235,255,1);
     margin-bottom: 30px;
