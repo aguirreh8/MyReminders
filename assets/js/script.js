@@ -44,6 +44,11 @@ const deleteNote = (id) => {
     localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
 }
 
+clearBtn.addEventListener("click", function(e) {
+    document.getElementById("newNote").reset();
+    e.preventDefault();
+})
+
 const createNoteElement = (noteTitle, noteMessage, id, dateCreated) => {
     const newNoteCard = document.createElement("div");
     const newNoteTitle = document.createElement("h3");
