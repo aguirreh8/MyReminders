@@ -14,23 +14,27 @@ document.addEventListener("DOMContentLoaded", function() {
 const submitNote = () => {
     const noteTitle = document.getElementById("noteTitle").value;
     const noteMessage = document.getElementById("noteMessage").value;
-    let generateId = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + 
+
+    if (noteMessage) {
+        let generateId = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + 
         Date.now();
     
-    const today = new Date();
-    const dateCreated = `${(today.getMonth()) + 1}/${today.getDate()}/${today.getFullYear()}`
+        const today = new Date();
+        const dateCreated = `${(today.getMonth()) + 1}/${today.getDate()}/${today.getFullYear()}`
 
-    createNoteElement(noteTitle, noteMessage, generateId, dateCreated);
-    
-    const sendInfoToStorageObj = {
-        id: generateId,
-        title: noteTitle,
-        message: noteMessage,
-        dateCreated: dateCreated
+        createNoteElement(noteTitle, noteMessage, generateId, dateCreated);
+        
+        const sendInfoToStorageObj = {
+            id: generateId,
+            title: noteTitle,
+            message: noteMessage,
+            dateCreated: dateCreated
+        }
+
+        notesCollection.push(sendInfoToStorageObj);
+        localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
     }
-
-    notesCollection.push(sendInfoToStorageObj);
-    localStorage.setItem("savedNotes", JSON.stringify(notesCollection));
+    
 }
 
 const deleteNote = (id) => {
